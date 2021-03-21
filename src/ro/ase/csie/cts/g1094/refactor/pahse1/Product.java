@@ -1,6 +1,8 @@
 
 package ro.ase.csie.cts.g1094.refactor.pahse1;
 
+import ro.ase.csie.cts.g1094.exceptions.InvalidPriceException;
+
 public class Product {
 	
 	public static final int  MAX_AGE_ACCOUNT = 10;
@@ -9,6 +11,15 @@ public class Product {
 	public float computePriceWithDiscount(ProductType productType, float price, int accountAge)
 
 	  {
+		if(price <=0) {
+			throw new InvalidPriceException();
+		}
+		if(accountAge <=0) {
+			throw new InvalidAgeException();
+		}
+	
+		
+		
 	    float finalPrice = 0;
 	    float fidelityDiscount = (accountAge > MAX_AGE_ACCOUNT) ? MAX_FIDELITY_DISCOUNT : (float)accountAge/100; 
 	    
