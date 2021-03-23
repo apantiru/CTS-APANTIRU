@@ -5,6 +5,7 @@ public class DbConnection {
 	String connString;
 	String schema;
 	
+	//eager-instantiation
 	private static DbConnection connection = null; //is static because it is an unique object (removed from obj area)
 	
 	private DbConnection() {
@@ -17,6 +18,7 @@ public class DbConnection {
 		
 	}
 
+	//lazy-instantiation of the unique object
 	private DbConnection(String connString, String schema) {
 		super();
 		this.connString = connString;
